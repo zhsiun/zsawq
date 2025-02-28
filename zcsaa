@@ -1,0 +1,1357 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local TextButton = Instance.new("TextButton")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local TextButton_2 = Instance.new("TextButton")
+local TextButton_3 = Instance.new("TextButton")
+local TextButton_4 = Instance.new("TextButton")
+local TextButton_5 = Instance.new("TextButton")
+local TextButton_6 = Instance.new("TextButton")
+local TextButton_7 = Instance.new("TextButton")
+local TextButton_8 = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local UIListLayout = Instance.new("UIListLayout")
+local TextButton_9 = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local TextButton_10 = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UICorner_4 = Instance.new("UICorner")
+local Intro = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local UICorner_5 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local ImageLabel_3 = Instance.new("ImageLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+
+
+UICorner_4.Parent = Frame
+
+Intro.Name = "Intro"
+Intro.Parent = ScreenGui
+Intro.BackgroundColor3 = Color3.fromRGB(8, 3, 10)
+Intro.BackgroundTransparency = 0
+Intro.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Intro.BorderSizePixel = 0
+Intro.Size = UDim2.new(1, 0, 1, 0)
+Intro.Visible = true
+
+ImageLabel.Parent = Intro
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.376543224, 0, 0.257537693, 0)
+ImageLabel.Size = UDim2.new(0.241152257, 0, 0.243718594, 0)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=99182075909265"
+
+UICorner_5.CornerRadius = UDim.new(0, 20)
+UICorner_5.Parent = ImageLabel
+
+TextLabel_2.Parent = Intro
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.335802466, 0, 0.559045255, 0)
+TextLabel_2.Size = UDim2.new(0.326748967, 0, 0.154522613, 0)
+TextLabel_2.Font = Enum.Font.Unknown
+TextLabel_2.Text = "Join the discord if you not already in there: https://discord.gg/YaZecXZsK2"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 49.000
+TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = Intro
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.333333343, 0, 0.559045255, 0)
+TextLabel_3.Size = UDim2.new(0.326748967, 0, 0.154522613, 0)
+TextLabel_3.Font = Enum.Font.Unknown
+TextLabel_3.Text = "Join the discord if you not already in there: https://discord.gg/YaZecXZsK2"
+TextLabel_3.TextColor3 = Color3.fromRGB(252, 252, 252)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 49.000
+TextLabel_3.TextWrapped = true
+
+ImageLabel_2.Parent = Intro
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_2.BorderSizePixel = 0
+ImageLabel_2.Position = UDim2.new(-0.0148148146, 0, 0.883165836, 0)
+ImageLabel_2.Rotation = 22.000
+ImageLabel_2.Size = UDim2.new(0.0823045298, 0, 0.125628144, 0)
+ImageLabel_2.Image = "http://www.roblox.com/asset/?id=76151470962193"
+
+ImageLabel_3.Parent = Intro
+ImageLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_3.BackgroundTransparency = 1.000
+ImageLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_3.BorderSizePixel = 0
+ImageLabel_3.Position = UDim2.new(0.032921806, 0, 0.952261329, 0)
+ImageLabel_3.Size = UDim2.new(0.0814814791, 0, 0.0477386937, 0)
+ImageLabel_3.Image = "http://www.roblox.com/asset/?id=81173147114857"
+
+
+
+-- Hide the Intro frame after 2 seconds
+wait(2)
+Intro.Visible = false
+
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- Function to create the Lay Down button
+local function createLayDownButton()
+    -- Create button
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(0, 100, 0, 50)  -- Keep the same size as before
+    button.Position = UDim2.new(0, 10, 1, -280)  -- Position at the top right, same as VCBypass
+    button.Text = "Lay Down"
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for contrast
+    button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for edgy feel
+    button.Font = Enum.Font.GothamBold  -- Bold and modern font
+    button.TextSize = 20  -- Slightly smaller text size for consistency
+    button.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+    button.BorderSizePixel = 0  -- No border to keep the sleek look
+    button.BackgroundTransparency = 0.3  -- Slight transparency for depth
+    button.Parent = screenGui
+
+    -- Add a UI corner for rounded edges
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 12)  -- Rounded corners with radius of 12
+    corner.Parent = button
+
+    -- Add hover effect
+    button.MouseEnter:Connect(function()
+        button.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+        button.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover for an edgy pop
+    end)
+
+    button.MouseLeave:Connect(function()
+        button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+        button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+    end)
+
+    -- Button click event
+    button.MouseButton1Click:Connect(function()
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        local hrp = character:FindFirstChild("HumanoidRootPart")
+        local animator = humanoid:FindFirstChildOfClass("Animator")
+
+        if humanoid and hrp and animator then
+            humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+            humanoid.PlatformStand = true -- Prevent movement
+            hrp.CFrame = hrp.CFrame * CFrame.new(0, -1, 0) * CFrame.Angles(math.rad(90), 0, 0) -- Adjust to lay down
+
+            -- Load and play the animation
+            local animation = Instance.new("Animation")
+            animation.AnimationId = "rbxassetid://90841854866960"
+            local animationTrack = animator:LoadAnimation(animation)
+
+            animationTrack:Play() -- Play the animation
+            animationTrack.TimePosition = 0.45 -- Start from 2 seconds
+            animationTrack:AdjustSpeed(0) -- Pause the animation
+
+            humanoid.PlatformStand = false -- Allow jumping again
+        end
+    end)
+end
+
+-- Create the Lay Down button when the player joins
+createLayDownButton()
+
+-- Recreate the GUI when the character is added (on reset)
+player.CharacterAdded:Connect(function()
+    createLayDownButton() -- Recreate the button immediately when the character resets
+end)
+
+
+--2 script 
+
+local player = game.Players.LocalPlayer
+local toolOrbitEnabled = false  -- Variable to track if the tool orbit is enabled
+local screenGui
+local button
+
+-- Function to create the GUI Button
+local function createButton()
+    -- Recreate the ScreenGui if it doesn't exist
+    if screenGui then
+        screenGui:Destroy()
+    end
+
+    screenGui = Instance.new("ScreenGui")
+    screenGui.Parent = player:WaitForChild("PlayerGui")
+
+    button = Instance.new("TextButton")
+    button.Size = UDim2.new(0, 200, 0, 50)  -- Smaller button size
+    button.Position = UDim2.new(0.5, 250, 0, -50)    -- Adjusted position
+    button.Text = "Activate Tool Orbit"
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for high contrast
+    button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for edgy feel
+    button.Font = Enum.Font.GothamBold  -- Bold and modern font
+    button.TextSize = 20  -- Slightly smaller text size
+    button.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+    button.BorderSizePixel = 0  -- No border to keep the sleek look
+    button.BackgroundTransparency = 0.3  -- Slight transparency for depth
+    button.Parent = screenGui
+
+    -- Add a UI corner for rounded edges
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 12)  -- Rounded corners with radius of 12
+    corner.Parent = button
+
+    -- Add a smooth hover effect
+    button.MouseEnter:Connect(function()
+        button.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+        button.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover for an edgy pop
+    end)
+
+    button.MouseLeave:Connect(function()
+        button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+        button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+    end)
+end
+
+-- Function to activate tool orbit
+local function activateToolOrbit()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local backpack = player.Backpack
+
+    if character:FindFirstChildOfClass("Tool") then
+        for i,v in pairs(character:GetChildren()) do
+            if v:IsA("Tool") then
+                v.Parent = backpack
+            end
+        end
+        wait()
+    end
+
+    for i,v in pairs(backpack:GetChildren()) do
+        if v:IsA("Tool") then
+            spawn(function()
+                local tool = v
+                local Handle = tool:FindFirstChild("Handle")
+                while toolOrbitEnabled do
+                    if Handle then
+                        local offset = Vector3.new(0, 0, 0.7)  -- Orbit offset
+                        local currentGrip = tool.Grip
+                        local rotation = CFrame.Angles(0, math.rad(workspace.DistributedGameTime * 50), 0)
+                        local inverseOffset = CFrame.new(offset):Inverse()
+                        local newGrip = currentGrip * rotation * inverseOffset
+                        tool.Grip = newGrip
+                        tool.Parent = player.Backpack
+                        Handle.CanCollide = false
+                        tool.Parent = character
+                    end
+                    wait(0)
+                end
+            end)
+        end
+    end
+end
+
+-- Function to deactivate tool orbit
+local function deactivateToolOrbit()
+    toolOrbitEnabled = false
+    button.Text = "Activate Tool Orbit"
+end
+
+-- Button click event
+local function onButtonClick()
+    if toolOrbitEnabled then
+        deactivateToolOrbit()
+    else
+        toolOrbitEnabled = true
+        button.Text = "Deactivate Tool Orbit"
+        activateToolOrbit()
+    end
+end
+
+-- Detect character reset and recreate the button
+player.CharacterAdded:Connect(function()
+    -- Wait for the character to load before creating the button
+    createButton()
+    button.MouseButton1Click:Connect(onButtonClick)
+end)
+
+-- Initial button creation if the character is already loaded
+if player.Character then
+    createButton()
+    button.MouseButton1Click:Connect(onButtonClick)
+end
+
+
+--- 3 script
+
+-- Create the house
+local function createPart(size, position, color)
+    local part = Instance.new("Part")
+    part.Size = size
+    part.Position = position
+    part.Anchored = true
+    part.BrickColor = BrickColor.new(color)
+    part.Parent = workspace
+    return part
+end
+
+local function createTransparentPart(size, position)
+    local part = createPart(size, position, "Institutional white")
+    part.Material = Enum.Material.SmoothPlastic
+    part.Transparency = 0.5
+    return part
+end
+
+local function createTeleporter(position, targetPosition)
+    local teleporter = createPart(Vector3.new(3, 10, 1), position, "White")
+    teleporter.Material = Enum.Material.Neon
+    teleporter.Touched:Connect(function(hit)
+        local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+        if player then
+            hit.Parent:SetPrimaryPartCFrame(CFrame.new(targetPosition))
+        end
+    end)
+end
+
+local function createTable(position)
+    local tableTop = createPart(Vector3.new(12, 0.5, 8), position, "Brown")
+    createPart(Vector3.new(0.5, 3, 0.5), position + Vector3.new(-5.5, -1.5, -3), "Brown")
+    createPart(Vector3.new(0.5, 3, 0.5), position + Vector3.new(5.5, -1.5, -3), "Brown")
+    createPart(Vector3.new(0.5, 3, 0.5), position + Vector3.new(-5.5, -1.5, 3), "Brown")
+    createPart(Vector3.new(0.5, 3, 0.5), position + Vector3.new(5.5, -1.5, 3), "Brown")
+end
+
+local function createChair(position)
+    local chairSeat = createPart(Vector3.new(2, 0.5, 2), position + Vector3.new(0, 0.5, 0), "Brown")
+    local backrest = createPart(Vector3.new(0.5, 2, 2), position + Vector3.new(0, 1.5, -1), "Brown")
+    chairSeat.Anchored = true
+    backrest.Anchored = true
+end
+
+local function createHouse()
+    local houseSize = Vector3.new(80, 20, 50)
+    local floorHeight = 1
+    local wallHeight = 20
+    local basePosition = Vector3.new(-168, -497, 150)
+
+    -- Create floor
+    createPart(Vector3.new(houseSize.X, floorHeight, houseSize.Z), basePosition, "Brown")
+
+    -- Create walls
+    local wallThickness = 1
+    createPart(Vector3.new(wallThickness, wallHeight, houseSize.Z), basePosition + Vector3.new(-houseSize.X/2, wallHeight/2, 0), "Brick")
+    createPart(Vector3.new(wallThickness, wallHeight, houseSize.Z), basePosition + Vector3.new(houseSize.X/2, wallHeight/2, 0), "Brick")
+    createPart(Vector3.new(houseSize.X, wallHeight, wallThickness), basePosition + Vector3.new(0, wallHeight/2, -houseSize.Z/2), "Brick")
+    createPart(Vector3.new(houseSize.X, wallHeight, wallThickness), basePosition + Vector3.new(0, wallHeight/2, houseSize.Z/2), "Brick")
+
+    -- Create door opening
+    local doorWidth = 3
+    local doorHeight = 7
+    local doorPosition = basePosition + Vector3.new(0, doorHeight / 2, houseSize.Z / 2 + 0.1)
+    createPart(Vector3.new(doorWidth, doorHeight, wallThickness), doorPosition, "Bright blue")
+
+    -- Create teleporters
+    createTeleporter(basePosition + Vector3.new(-30, 1, 0), Vector3.new(-323, 3, 160))
+    createTeleporter(Vector3.new(-317, 3, 160), Vector3.new(-204, -493, 133))
+
+    -- Create roof
+    createPart(Vector3.new(houseSize.X + 2 * wallThickness, wallThickness, houseSize.Z + 2 * wallThickness), basePosition + Vector3.new(0, wallHeight + wallThickness/2, 0), "Dark green")
+
+    -- Create transparent windows
+    local windowSize = Vector3.new(6, 6, wallThickness)
+    createTransparentPart(windowSize, basePosition + Vector3.new(-houseSize.X/2 + 1, wallHeight/2 + 2, houseSize.Z/2 + 0.1))
+    createTransparentPart(windowSize, basePosition + Vector3.new(houseSize.X/2 - 1, wallHeight/2 + 2, houseSize.Z/2 + 0.1))
+    createTransparentPart(windowSize, basePosition + Vector3.new(0, wallHeight/2 + 2, -houseSize.Z/2 + 0.1))
+
+    -- Create table
+    local tablePosition = basePosition + Vector3.new(0, 1, 0)
+    createTable(tablePosition)
+
+    -- Create chairs around the table
+    local chairOffset = 6
+    for i = 0, 7 do
+        local angle = (i * math.pi / 4)
+        local xOffset = chairOffset * math.cos(angle)
+        local zOffset = chairOffset * math.sin(angle)
+        createChair(tablePosition + Vector3.new(xOffset, 0, zOffset))
+    end
+
+    -- Create lights
+    local light = Instance.new("PointLight")
+    light.Brightness = 2
+    light.Range = 20
+    light.Parent = createPart(Vector3.new(1, 1, 1), basePosition + Vector3.new(0, wallHeight - 1, 0), "White")
+end
+
+createHouse()
+
+
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.ResetOnSpawn = false  -- Prevent GUI from disappearing on reset
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 200, 0, 50)  -- Keep the same size as before
+button.Position = UDim2.new(0.85, 0, 0.4, 0)  -- Position at the top right of the screen
+button.Text = "Go to Crib"
+button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for contrast
+button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for edgy feel
+button.Font = Enum.Font.GothamBold  -- Bold and modern font
+button.TextSize = 20  -- Slightly smaller text size for consistency
+button.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+button.BorderSizePixel = 0  -- No border to keep the sleek look
+button.BackgroundTransparency = 0.3  -- Slight transparency for depth
+button.Parent = screenGui
+
+-- Add a UI corner for rounded edges
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)  -- Rounded corners with radius of 12
+corner.Parent = button
+
+-- Add hover effect
+button.MouseEnter:Connect(function()
+    button.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+    button.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover for an edgy pop
+end)
+
+button.MouseLeave:Connect(function()
+    button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+end)
+
+-- Function to teleport the player
+local function teleportToCrib()
+    local character = player.Character
+    if character and character.PrimaryPart then
+        character:SetPrimaryPartCFrame(CFrame.new(-139, -493, 133))
+    end
+end
+
+-- Button click event
+button.MouseButton1Click:Connect(teleportToCrib)
+
+-- Ensure the button stays in place after respawning
+player.CharacterAdded:Connect(function(character)
+    -- Remove the old ScreenGui to prevent duplicates
+    screenGui:Destroy()
+
+    -- Create a new ScreenGui immediately
+    local newScreenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+    local newButton = Instance.new("TextButton")
+    newButton.Size = UDim2.new(0, 200, 0, 50)
+    newButton.Position = UDim2.new(0.85, 0, 0.4, 0)
+    newButton.Text = "Go to Crib"
+    newButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    newButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    newButton.Font = Enum.Font.GothamBold
+    newButton.TextSize = 20
+    newButton.TextStrokeTransparency = 0.7
+    newButton.BorderSizePixel = 0
+    newButton.BackgroundTransparency = 0.3
+    newButton.Parent = newScreenGui
+
+    -- Add UI corner and hover effects for the new button
+    local newCorner = Instance.new("UICorner")
+    newCorner.CornerRadius = UDim.new(0, 12)
+    newCorner.Parent = newButton
+
+    newButton.MouseEnter:Connect(function()
+        newButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        newButton.TextColor3 = Color3.fromRGB(255, 200, 0)
+    end)
+
+    newButton.MouseLeave:Connect(function()
+        newButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+        newButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    end)
+
+    newButton.MouseButton1Click:Connect(teleportToCrib)
+end)
+
+
+
+---4th script 
+
+
+local player = game.Players.LocalPlayer
+local camera = game.Workspace.CurrentCamera
+local originalPosition
+local currentPosition
+local isInvisible = false
+local handle
+local weld
+local normalHeight = 5  -- Set the height where the player should appear when visible
+local currentCameraRotation = math.rad(90)  -- Start with 90 degrees rotation
+
+-- Function to create the GUI buttons
+local function createGui()
+    -- Create a ScreenGui to hold the buttons
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Parent = player.PlayerGui
+    screenGui.Name = "InvisibilityGUI"
+    screenGui.ResetOnSpawn = false  -- Prevent GUI from disappearing on reset
+
+    -- Create the "Invisible" button
+    local buttonInvisible = Instance.new("TextButton")
+    buttonInvisible.Size = UDim2.new(0, 200, 0, 50)
+    buttonInvisible.Position = UDim2.new(0.5, -100, 0, 5)  -- Top middle of the screen
+    buttonInvisible.Text = "UnderGround"
+    buttonInvisible.TextSize = 24
+    buttonInvisible.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for sleek look
+    buttonInvisible.TextColor3 = Color3.fromRGB(255, 255, 255)
+    buttonInvisible.Font = Enum.Font.GothamBold
+    buttonInvisible.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+    buttonInvisible.BorderSizePixel = 0  -- No border
+    buttonInvisible.BackgroundTransparency = 0.3  -- Slight transparency for depth
+    buttonInvisible.Parent = screenGui
+
+    -- Add a UI corner for rounded edges
+    local cornerInvisible = Instance.new("UICorner")
+    cornerInvisible.CornerRadius = UDim.new(0, 12)  -- Rounded corners
+    cornerInvisible.Parent = buttonInvisible
+
+    -- Hover effect for "Invisible" button
+    buttonInvisible.MouseEnter:Connect(function()
+        buttonInvisible.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+        buttonInvisible.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover
+    end)
+
+    buttonInvisible.MouseLeave:Connect(function()
+        buttonInvisible.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+        buttonInvisible.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+    end)
+
+    -- Create the "Rotate" button
+    local buttonRotate = Instance.new("TextButton")
+    buttonRotate.Size = UDim2.new(0, 200, 0, 50)
+    buttonRotate.Position = UDim2.new(0.5, -100, 0, 55)  -- Positioned below the "Invisible" button
+    buttonRotate.Text = "Rotate"
+    buttonRotate.TextSize = 24
+    buttonRotate.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for sleek look
+    buttonRotate.TextColor3 = Color3.fromRGB(255, 255, 255)
+    buttonRotate.Font = Enum.Font.GothamBold
+    buttonRotate.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+    buttonRotate.BorderSizePixel = 0  -- No border
+    buttonRotate.BackgroundTransparency = 0.3  -- Slight transparency for depth
+    buttonRotate.Parent = screenGui
+
+    -- Add a UI corner for rounded edges
+    local cornerRotate = Instance.new("UICorner")
+    cornerRotate.CornerRadius = UDim.new(0, 12)  -- Rounded corners
+    cornerRotate.Parent = buttonRotate
+
+    -- Hover effect for "Rotate" button
+    buttonRotate.MouseEnter:Connect(function()
+        buttonRotate.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+        buttonRotate.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover
+    end)
+
+    buttonRotate.MouseLeave:Connect(function()
+        buttonRotate.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+        buttonRotate.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+    end)
+
+    -- Function to toggle between visible and invisible states
+    local function toggleInvisibility()
+        if isInvisible then
+            -- When going visible, use the current position to place the player above ground
+            local newPosition = Vector3.new(player.Character.HumanoidRootPart.Position.X, normalHeight, player.Character.HumanoidRootPart.Position.Z)
+            
+            -- Get the camera's current yaw (rotation around the Y axis)
+            local cameraYaw = camera.CFrame.LookVector
+            local angle = math.atan2(cameraYaw.X, cameraYaw.Z)  -- Calculate angle based on the LookVector
+            
+            -- Invert the angle by adding 180 degrees (math.pi)
+            local invertedAngle = angle + math.pi
+            
+            -- Set the player's position and rotation to match the camera's inverted rotation
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(newPosition) * CFrame.Angles(0, invertedAngle, 0)
+            
+            -- Re-enable the camera subject to the player
+            camera.CameraSubject = player.Character.Humanoid
+            
+            -- Destroy the handle if it's created
+            if handle then
+                handle:Destroy()
+            end
+
+            buttonInvisible.Text = "UnderGround"
+        else
+            -- Save the current position when going invisible (only save the X, Y, Z position for reference)
+            currentPosition = player.Character.HumanoidRootPart.Position
+            
+            -- Move character below the map (height -7) while keeping movement active
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(currentPosition.X, -7, currentPosition.Z)
+            
+            -- Create the "handle" to keep the camera above the map
+            if not handle then
+                handle = Instance.new("Part", workspace)
+                handle.Name = "Handle"
+                handle.Size = Vector3.new(2, 1, 1)
+                handle.Transparency = 1
+                handle.CanCollide = false
+                
+                -- Weld the handle to the player's HumanoidRootPart so it moves with the player
+                weld = Instance.new("Weld", handle)
+                weld.Part0 = handle
+                weld.Part1 = player.Character.HumanoidRootPart
+                weld.C0 = CFrame.new(0, 10, 0)  -- Position the camera's "handle" above the character
+                
+                -- Position the camera above the map (stay above the ground even when under it)
+                camera.CameraSubject = handle
+            end
+
+            buttonInvisible.Text = "Visible"
+        end
+
+        isInvisible = not isInvisible
+    end
+
+    -- Function to update the camera's position when the player is invisible
+    local function updateCameraPosition()
+        if isInvisible and handle then
+            -- Keep the handle positioned above the player at all times while moving
+            handle.CFrame = player.Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
+            
+            -- Make the camera always face the current rotation
+            local cameraPosition = camera.CFrame.Position
+            local newCameraCFrame = CFrame.new(cameraPosition.X, player.Character.HumanoidRootPart.Position.Y + 10, cameraPosition.Z) * CFrame.Angles(0, currentCameraRotation, 0)
+            camera.CFrame = newCameraCFrame
+        end
+    end
+
+    -- Function to rotate the camera through the sequence of angles: 90, 0, 260, 180
+    local function rotateCamera()
+        if isInvisible then
+            -- Cycle through the rotations in order: 90 -> 0 -> 260 -> 180 -> 90 -> ...
+            if currentCameraRotation == math.rad(90) then
+                currentCameraRotation = math.rad(0)
+            elseif currentCameraRotation == math.rad(0) then
+                currentCameraRotation = math.rad(270)
+            elseif currentCameraRotation == math.rad(270) then
+                currentCameraRotation = math.rad(180)
+            else
+                currentCameraRotation = math.rad(90)
+            end
+        end
+    end
+
+    -- Connect the button click to the toggle function for invisibility
+    buttonInvisible.MouseButton1Click:Connect(toggleInvisibility)
+
+    -- Connect the button click to the rotate camera function
+    buttonRotate.MouseButton1Click:Connect(rotateCamera)
+
+    -- Update the camera position continuously when invisible
+    game:GetService("RunService").RenderStepped:Connect(updateCameraPosition)
+end
+
+-- Create the GUI initially
+createGui()
+
+-- Recreate the GUI on character reset
+player.CharacterAdded:Connect(function()
+    -- Wait until the character is fully loaded
+    wait(2)
+    -- Recreate the GUI
+    createGui()
+end)
+
+-- Create a platform above the void to stand on
+local voidLevelY = -10  -- The Y-axis level that represents the void (adjust this value as needed)
+local platformHeight = 1  -- Thickness of the platform
+local platformSize = Vector3.new(1000, platformHeight, 1000)  -- Size of the platform (adjust to your liking)
+
+-- Create the platform part
+local platform = Instance.new("Part")
+platform.Size = platformSize
+platform.Anchored = true
+platform.CanCollide = true  -- Enable collision so you can stand on it
+platform.Position = Vector3.new(0, voidLevelY + (platformHeight / 2), 0)  -- Place the platform at the void level
+platform.Transparency = 1  -- Make the platform invisible (set to 0 if you want to see it)
+platform.Name = "VoidPlatform"
+platform.Parent = game.Workspace  -- Add the platform to the game workspace
+
+-- Optional: Prevent the platform from being destroyed by game mechanics
+platform.CanTouch = true
+platform.CanQuery = true
+
+-- You can optionally make the platform visible for debugging purposes by setting:
+-- platform.Transparency = 0.5  -- Make it semi-transparent for testing
+
+
+---5th script
+
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Function to create the Screen GUI
+local function createGui()
+    -- Create the Screen GUI
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "GetUpGui"
+    screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
+    screenGui.Parent = playerGui
+
+    -- Get Up Button
+    local getUpButton = Instance.new("TextButton")
+    getUpButton.Size = UDim2.new(0, 100, 0, 50)
+    getUpButton.Position = UDim2.new(0, 120, 1, -280) -- Positioned next to the Lay Down button
+    getUpButton.Text = "Get Up"
+    getUpButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for contrast
+    getUpButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for edgy feel
+    getUpButton.Font = Enum.Font.GothamBold  -- Bold and modern font
+    getUpButton.TextSize = 20  -- Slightly smaller text size for consistency
+    getUpButton.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+    getUpButton.BorderSizePixel = 0  -- No border to keep the sleek look
+    getUpButton.BackgroundTransparency = 0.3  -- Slight transparency for depth
+    getUpButton.Parent = screenGui
+
+    -- Add a UI corner for rounded edges
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 12)  -- Rounded corners with radius of 12
+    corner.Parent = getUpButton
+
+    -- Add hover effect
+    getUpButton.MouseEnter:Connect(function()
+        getUpButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+        getUpButton.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover for an edgy pop
+    end)
+
+    getUpButton.MouseLeave:Connect(function()
+        getUpButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+        getUpButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+    end)
+
+    -- Function to make the character jump and play the animation
+    local function getUp()
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        local animator = humanoid:FindFirstChildOfClass("Animator")
+
+        if humanoid and animator then
+            -- Stop all currently playing animations
+            for _, track in ipairs(animator:GetPlayingAnimationTracks()) do
+                track:Stop()
+            end
+
+            -- Play the new animation
+            local animation = Instance.new("Animation")
+            animation.AnimationId = "rbxassetid://15693621070"
+            local animationTrack = animator:LoadAnimation(animation)
+
+            animationTrack:Play() -- Play the animation
+            animationTrack.TimePosition = 1.60 -- Start from 1.60 seconds
+            animationTrack:AdjustSpeed(-1) -- Play the animation in reverse
+
+            humanoid:ChangeState(Enum.HumanoidStateType.Jumping) -- Make the character jump
+
+            wait(1) -- Wait for 1 second
+            animationTrack:Stop() -- Stop the animation
+        end
+    end
+
+    -- Button click event
+    getUpButton.MouseButton1Click:Connect(getUp)
+end
+
+-- Create the GUI when the script runs
+createGui()
+
+-- Recreate the GUI after each reset
+player.CharacterAdded:Connect(function()
+    createGui()
+end)
+
+--6th script 
+
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Function to create the Screen GUI
+local function createGui()
+    -- Create the Screen GUI
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "ReverseGui"
+    screenGui.Parent = playerGui
+
+    -- Reverse Button
+    local reverseButton = Instance.new("TextButton")
+    reverseButton.Size = UDim2.new(0, 100, 0, 50)
+    reverseButton.Position = UDim2.new(0, 10, 1, -210) -- Positioned at the bottom left
+    reverseButton.Text = "Reverse" -- Initial text
+    reverseButton.Font = Enum.Font.GothamBold
+    reverseButton.TextSize = 20
+    reverseButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Dark background for edgy feel
+    reverseButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text
+    reverseButton.TextStrokeTransparency = 0.7 -- Slight text stroke for sharp contrast
+    reverseButton.BorderSizePixel = 0 -- No border to keep the sleek look
+    reverseButton.BackgroundTransparency = 0.3 -- Slight transparency for depth
+    reverseButton.Parent = screenGui
+
+    -- Add a UI corner for rounded edges
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 12) -- Rounded corners with radius of 12
+    corner.Parent = reverseButton
+
+    -- Add hover effect
+    reverseButton.MouseEnter:Connect(function()
+        reverseButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60) -- Darker gray on hover for effect
+        reverseButton.TextColor3 = Color3.fromRGB(255, 200, 0) -- Goldish text color on hover for an edgy pop
+    end)
+
+    reverseButton.MouseLeave:Connect(function()
+        reverseButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Return to original dark color
+        reverseButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- White text when not hovered
+    end)
+
+    local frames = {}
+    local flashbackEnabled = false
+    local flashbackLength = 60 -- seconds
+    local flashbackSpeed = 1 -- frames to skip
+    local RS = game:GetService("RunService")
+    local LP = game.Players.LocalPlayer
+
+    local function getCharacter()
+        return LP.Character or LP.CharacterAdded:Wait()
+    end
+
+    local function getHRP(character)
+        return character:FindFirstChild("HumanoidRootPart") or character.PrimaryPart
+    end
+
+    local function advanceMovement(char, hrp, hum)
+        if #frames > flashbackLength * 500 then
+            table.remove(frames, 1)
+        end
+        table.insert(frames, {
+            hrp.CFrame,
+            hrp.Velocity,
+            hum:GetState(),
+            hum.PlatformStand,
+            char:FindFirstChildOfClass("Tool")
+        })
+    end
+
+    local function revertMovement(char, hrp, hum)
+        local num = #frames
+        if num == 0 then
+            return
+        end
+
+        for i = 1, flashbackSpeed do
+            if num <= 0 then break end
+            num = num - 1
+        end
+
+        local lastFrame = frames[num]
+        table.remove(frames, num)
+
+        hrp.CFrame = lastFrame[1]
+        hrp.Velocity = -lastFrame[2]
+        hum:ChangeState(lastFrame[3])
+        hum.PlatformStand = lastFrame[4]
+
+        local currentTool = char:FindFirstChildOfClass("Tool")
+        if lastFrame[5] then
+            if not currentTool then
+                hum:EquipTool(lastFrame[5])
+            end
+        else
+            hum:UnequipTools()
+        end
+    end
+
+    reverseButton.MouseButton1Click:Connect(function()
+        flashbackEnabled = not flashbackEnabled
+        reverseButton.BackgroundColor3 = flashbackEnabled and Color3.fromRGB(255, 0, 0) or Color3.fromRGB(35, 35, 35) -- Toggle color
+        reverseButton.Text = flashbackEnabled and "UnReverse" or "Reverse" -- Toggle text
+
+        -- Adjust all currently playing animations
+        local char = getCharacter()
+        local hum = char:FindFirstChildWhichIsA("Humanoid")
+        local animator = hum:FindFirstChildOfClass("Animator")
+
+        if animator then
+            for _, animationTrack in pairs(animator:GetPlayingAnimationTracks()) do
+                animationTrack:AdjustSpeed(flashbackEnabled and -1 or 1) -- Set speed to -1 when reversing, reset to 1 otherwise
+            end
+        end
+    end)
+
+    RS.RenderStepped:Connect(function()
+        local char = getCharacter()
+        local hrp = getHRP(char)
+        local hum = char:FindFirstChildWhichIsA("Humanoid")
+
+        if flashbackEnabled then
+            revertMovement(char, hrp, hum)
+        else
+            advanceMovement(char, hrp, hum)
+        end
+    end)
+end
+
+-- Create the GUI when the script runs
+createGui()
+
+-- Recreate the GUI after each reset
+player.CharacterAdded:Connect(function()
+    createGui()
+end)
+
+
+---7th script
+
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Table to keep track of platforms created for players
+local platforms = {}
+local headSitActive = false -- Start with HeadSit inactive
+
+-- Function to create and attach a platform above a player's head
+local function createPlatformAboveHead(targetPlayer)
+    local targetCharacter = targetPlayer.Character
+    if targetCharacter then
+        local head = targetCharacter:FindFirstChild("Head")
+        if head then
+            -- Check if a platform already exists for this player
+            if not platforms[targetPlayer.UserId] then
+                -- Create a new part for the platform
+                local platform = Instance.new("Part")
+                platform.Size = Vector3.new(3, 0.2, 3) -- Size of the platform
+                platform.Anchored = true -- Keep it anchored
+                platform.CanCollide = true -- Make it collidable
+                platform.BrickColor = BrickColor.new("Bright blue") -- Change color as needed
+                platform.Material = Enum.Material.SmoothPlastic
+                platform.Parent = workspace
+
+                -- Position the platform above the player's head (lowered)
+                platform.CFrame = head.CFrame * CFrame.new(0, 0.8, 0) -- Adjusted height to be lower
+
+                -- Store the platform in the table
+                platforms[targetPlayer.UserId] = platform
+
+                -- Update the platform's position on Heartbeat
+                local connection
+                connection = game:GetService("RunService").Heartbeat:Connect(function()
+                    if targetPlayer.Character and targetPlayer.Character:FindFirstChild("Head") then
+                        local updatedHead = targetPlayer.Character.Head
+                        platform.CFrame = updatedHead.CFrame * CFrame.new(0, 0.8, 0) -- Update position above the head
+                    else
+                        -- Remove the platform if the player is no longer valid
+                        platforms[targetPlayer.UserId] = nil
+                        platform:Destroy()
+                        connection:Disconnect() -- Disconnect the event
+                    end
+                end)
+            end
+        end
+    end
+end
+
+-- Create the Screen GUI and Buttons
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "HeadSitGui"
+screenGui.Parent = player:WaitForChild("PlayerGui")
+screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
+
+-- HeadSit Button Design
+local toggleButton = Instance.new("TextButton", screenGui)
+toggleButton.Name = "HeadSitButton"
+toggleButton.Size = UDim2.new(0, 100, 0, 50)  -- Keep the same size as before
+toggleButton.Position = UDim2.new(0, 10, 1, -150)  -- Position at the top right of the screen
+toggleButton.Text = "HeadSit: Off"
+toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for contrast
+toggleButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for edgy feel
+toggleButton.Font = Enum.Font.GothamBold  -- Bold and modern font
+toggleButton.TextSize = 20  -- Slightly smaller text size for consistency
+toggleButton.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+toggleButton.BorderSizePixel = 0  -- No border to keep the sleek look
+toggleButton.BackgroundTransparency = 0.3  -- Slight transparency for depth
+
+-- Add a UI corner for rounded edges
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)  -- Rounded corners with radius of 12
+corner.Parent = toggleButton
+
+-- Add hover effect
+toggleButton.MouseEnter:Connect(function()
+    toggleButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+    toggleButton.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover for an edgy pop
+end)
+
+toggleButton.MouseLeave:Connect(function()
+    toggleButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+    toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+end)
+
+-- Function to toggle HeadSit
+local function toggleHeadSit()
+    headSitActive = not headSitActive
+    if headSitActive then
+        toggleButton.Text = "HeadSit: On"
+        -- Create platforms for nearby players
+        for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+            if otherPlayer ~= player then
+                createPlatformAboveHead(otherPlayer)
+            end
+        end
+    else
+        toggleButton.Text = "HeadSit: Off"
+        -- Cleanup all platforms
+        for userId, platform in pairs(platforms) do
+            platform:Destroy()
+            platforms[userId] = nil
+        end
+    end
+end
+
+-- Connect button click to toggle function
+toggleButton.MouseButton1Click:Connect(toggleHeadSit)
+
+-- Function to reset the GUI on character respawn
+local function resetGui()
+    -- If the GUI already exists, destroy it before creating a new one
+    if player.PlayerGui:FindFirstChild("HeadSitGui") then
+        player.PlayerGui.HeadSitGui:Destroy()
+    end
+    -- Create a new ScreenGui and Button
+    screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "HeadSitGui"
+    screenGui.Parent = player:WaitForChild("PlayerGui")
+    screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
+
+    toggleButton = Instance.new("TextButton", screenGui)
+    toggleButton.Name = "HeadSitButton"
+    toggleButton.Size = UDim2.new(0, 100, 0, 50)  -- Keep the same size as before
+    toggleButton.Position = UDim2.new(0, 10, 1, -150)  -- Position at the top right of the screen
+    toggleButton.Text = "HeadSit: Off"
+    toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for contrast
+    toggleButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for edgy feel
+    toggleButton.Font = Enum.Font.GothamBold  -- Bold and modern font
+    toggleButton.TextSize = 20  -- Slightly smaller text size for consistency
+    toggleButton.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+    toggleButton.BorderSizePixel = 0  -- No border to keep the sleek look
+    toggleButton.BackgroundTransparency = 0.3  -- Slight transparency for depth
+
+    -- Add a UI corner for rounded edges
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 12)  -- Rounded corners with radius of 12
+    corner.Parent = toggleButton
+
+    -- Reconnect the toggle function to the button
+    toggleButton.MouseButton1Click:Connect(toggleHeadSit)
+end
+
+-- Connect the character added event to recreate the GUI
+player.CharacterAdded:Connect(resetGui)
+
+-- Call to create the initial GUI
+resetGui()
+
+
+
+--8th script 
+
+
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 200, 0, 50)  -- Keep the same size as before
+button.Position = UDim2.new(0.9, -100, 0, 0)  -- Position at the top right of the screen
+button.Text = "VC BYPASS"
+button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for contrast
+button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for edgy feel
+button.Font = Enum.Font.GothamBold  -- Bold and modern font
+button.TextSize = 20  -- Slightly smaller text size for consistency
+button.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+button.BorderSizePixel = 0  -- No border to keep the sleek look
+button.BackgroundTransparency = 0.3  -- Slight transparency for depth
+button.Parent = screenGui
+
+-- Add a UI corner for rounded edges
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)  -- Rounded corners with radius of 12
+corner.Parent = button
+
+-- Add hover effect
+button.MouseEnter:Connect(function()
+    button.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+    button.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover for an edgy pop
+end)
+
+button.MouseLeave:Connect(function()
+    button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+end)
+
+-- Button click event
+button.MouseButton1Click:Connect(function()
+    local VoiceChatService = game:GetService("VoiceChatService")
+    VoiceChatService:joinVoice()
+end)
+
+--9th script
+
+
+local player = game.Players.LocalPlayer
+
+-- Function to create the Screen GUI and Buttons
+local function createGui()
+    local playerGui = player:WaitForChild("PlayerGui")
+
+    -- Create the Screen GUI if it doesn't exist
+    local screenGui = playerGui:FindFirstChild("InvisibleGui") or Instance.new("ScreenGui")
+    screenGui.Name = "InvisibleGui"
+    screenGui.Parent = playerGui
+    screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
+
+    -- Invisible Button
+    local invisibleButton = screenGui:FindFirstChild("InvisibleButton") or Instance.new("TextButton")
+    invisibleButton.Size = UDim2.new(0, 100, 0, 50)
+    invisibleButton.Position = UDim2.new(0, 10, 1, -60) -- Position at bottom left
+    invisibleButton.Text = "Invisible"
+    invisibleButton.Name = "InvisibleButton"
+    invisibleButton.Parent = screenGui
+    -- Apply design from the first script
+    invisibleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    invisibleButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    invisibleButton.Font = Enum.Font.GothamBold
+    invisibleButton.TextSize = 20
+    invisibleButton.TextStrokeTransparency = 0.7
+    invisibleButton.BorderSizePixel = 0
+    invisibleButton.BackgroundTransparency = 0.3
+
+    -- Speed Up Button
+    local speedUpButton = screenGui:FindFirstChild("SpeedUpButton") or Instance.new("TextButton")
+    speedUpButton.Size = UDim2.new(0, 100, 0, 50)
+    speedUpButton.Position = UDim2.new(0, 120, 1, -60) -- Position to the right of the Invisible button
+    speedUpButton.Text = "Speed Up"
+    speedUpButton.Name = "SpeedUpButton"
+    speedUpButton.Parent = screenGui
+    -- Apply design from the first script
+    speedUpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    speedUpButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    speedUpButton.Font = Enum.Font.GothamBold
+    speedUpButton.TextSize = 20
+    speedUpButton.TextStrokeTransparency = 0.7
+    speedUpButton.BorderSizePixel = 0
+    speedUpButton.BackgroundTransparency = 0.3
+
+    -- Slow Down Button
+    local slowDownButton = screenGui:FindFirstChild("SlowDownButton") or Instance.new("TextButton")
+    slowDownButton.Size = UDim2.new(0, 100, 0, 50)
+    slowDownButton.Position = UDim2.new(0, 230, 1, -60) -- Position to the right of the Speed Up button
+    slowDownButton.Text = "Slow Down"
+    slowDownButton.Name = "SlowDownButton"
+    slowDownButton.Parent = screenGui
+    -- Apply design from the first script
+    slowDownButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    slowDownButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    slowDownButton.Font = Enum.Font.GothamBold
+    slowDownButton.TextSize = 20
+    slowDownButton.TextStrokeTransparency = 0.7
+    slowDownButton.BorderSizePixel = 0
+    slowDownButton.BackgroundTransparency = 0.3
+
+    -- Add rounded corners to buttons
+    local cornerInvisible = Instance.new("UICorner")
+    cornerInvisible.CornerRadius = UDim.new(0, 12)
+    cornerInvisible.Parent = invisibleButton
+
+    local cornerSpeedUp = Instance.new("UICorner")
+    cornerSpeedUp.CornerRadius = UDim.new(0, 12)
+    cornerSpeedUp.Parent = speedUpButton
+
+    local cornerSlowDown = Instance.new("UICorner")
+    cornerSlowDown.CornerRadius = UDim.new(0, 12)
+    cornerSlowDown.Parent = slowDownButton
+
+    -- Hover effect
+    invisibleButton.MouseEnter:Connect(function()
+        invisibleButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover
+        invisibleButton.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover
+    end)
+
+    invisibleButton.MouseLeave:Connect(function()
+        invisibleButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+        invisibleButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+    end)
+
+    speedUpButton.MouseEnter:Connect(function()
+        speedUpButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        speedUpButton.TextColor3 = Color3.fromRGB(255, 200, 0)
+    end)
+
+    speedUpButton.MouseLeave:Connect(function()
+        speedUpButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+        speedUpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    end)
+
+    slowDownButton.MouseEnter:Connect(function()
+        slowDownButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        slowDownButton.TextColor3 = Color3.fromRGB(255, 200, 0)
+    end)
+
+    slowDownButton.MouseLeave:Connect(function()
+        slowDownButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+        slowDownButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    end)
+
+    -- Function to toggle invisibility when the button is clicked
+    invisibleButton.MouseButton1Click:Connect(function()
+        toggleInvisibility()
+
+        -- Change button text based on invisibility state
+        if getgenv().en then
+            invisibleButton.Text = "Uninvisible"
+        else
+            invisibleButton.Text = "Invisible"
+        end
+    end)
+
+    -- Speed Up button functionality
+    speedUpButton.MouseButton1Click:Connect(function()
+        if getgenv().FlySpeed < 10 then  -- Maximum speed limit
+            getgenv().FlySpeed = getgenv().FlySpeed + 0.1  -- Increase speed
+        end
+    end)
+
+    -- Slow Down button functionality
+    slowDownButton.MouseButton1Click:Connect(function()
+        if getgenv().FlySpeed > 0.1 then  -- Minimum speed limit
+            getgenv().FlySpeed = getgenv().FlySpeed - 0.1  -- Decrease speed
+        end
+    end)
+end
+
+-- Create the GUI when the player joins
+createGui()
+
+-- Recreate the GUI when the character is added (on reset)
+player.CharacterAdded:Connect(function()
+    -- Wait until the character is fully loaded
+    wait(2)
+    -- Recreate the GUI immediately when the character resets
+    createGui()
+end)
+
+-- Existing code continues here...
+workspace.FallenPartsDestroyHeight = math.huge - math.huge
+getgenv().FlySpeed = 0.2 -- Default slower speed (adjust this value)
+getgenv().www = false
+getgenv().aaa = false
+getgenv().sss = false
+getgenv().ddd = false
+getgenv().qqq = false
+getgenv().eee = false
+getgenv().en = false
+getgenv().ssss = player:GetMouse()
+getgenv().currentcf = nil
+
+local part = Instance.new("Part") -- Create a new part
+part.Name = "a" 
+part.Anchored = true 
+part.Parent = game.Workspace
+part.CFrame = CFrame.new(0, -600000, 0)
+
+-- Key down events to control flying
+ssss.KeyDown:connect(function(key)
+    if key == "=" then
+        getgenv().FlySpeed = getgenv().FlySpeed + 0.1 -- Increase speed gradually
+    elseif key == "-" then
+        getgenv().FlySpeed = 0.2 -- Reset to default slower speed
+    elseif key == "w" then
+        getgenv().www = true
+    elseif key == "a" then
+        getgenv().aaa = true
+    elseif key == "s" then
+        getgenv().sss = true
+    elseif key == "d" then
+        getgenv().ddd = true
+    elseif key == "q" then
+        getgenv().qqq = true
+    elseif key == "e" then
+        getgenv().eee = true
+    elseif key == "" then
+        toggleInvisibility()
+    end
+end)
+
+-- Key up events to stop movement
+ssss.KeyUp:connect(function(key)
+    if key == "w" then
+        getgenv().www = false
+    elseif key == "a" then
+        getgenv().aaa = false
+    elseif key == "s" then
+        getgenv().sss = false
+    elseif key == "d" then
+        getgenv().ddd = false
+    elseif key == "q" then
+        getgenv().qqq = false
+    elseif key == "e" then
+        getgenv().eee = false
+    end
+end)
+
+function toggleInvisibility()
+    if getgenv().en then 
+        getgenv().en = false
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+    else 
+        getgenv().en = true
+        getgenv().currentcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = part.CFrame
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+        wait()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getgenv().currentcf
+    end
+end
+
+-- Movement logic
+game:GetService("RunService").RenderStepped:Connect(function()
+    if getgenv().en then
+        if getgenv().www then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, getgenv().FlySpeed * -1)
+        end    
+        if getgenv().aaa then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(getgenv().FlySpeed * -1, 0, 0)
+        end
+        if getgenv().sss then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, getgenv().FlySpeed)
+        end
+        if getgenv().ddd then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(getgenv().FlySpeed, 0, 0)
+        end
+        if getgenv().qqq then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, getgenv().FlySpeed, 0)
+        end
+        if getgenv().eee then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, getgenv().FlySpeed * -1, 0)
+        end
+    end
+end)
