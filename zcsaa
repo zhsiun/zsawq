@@ -1112,3 +1112,246 @@ button.MouseButton1Click:Connect(function()
     local VoiceChatService = game:GetService("VoiceChatService")
     VoiceChatService:joinVoice()
 end)
+
+--9th script
+
+
+local player = game.Players.LocalPlayer
+
+-- Function to create the Screen GUI and Buttons
+local function createGui()
+    local playerGui = player:WaitForChild("PlayerGui")
+
+    -- Create the Screen GUI if it doesn't exist
+    local screenGui = playerGui:FindFirstChild("InvisibleGui") or Instance.new("ScreenGui")
+    screenGui.Name = "InvisibleGui"
+    screenGui.Parent = playerGui
+    screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
+
+    -- Invisible Button
+    local invisibleButton = screenGui:FindFirstChild("InvisibleButton") or Instance.new("TextButton")
+    invisibleButton.Size = UDim2.new(0, 100, 0, 50)
+    invisibleButton.Position = UDim2.new(0, 10, 1, -60) -- Position at bottom left
+    invisibleButton.Text = "Invisible"
+    invisibleButton.Name = "InvisibleButton"
+    invisibleButton.Parent = screenGui
+    -- Apply design from the first script
+    invisibleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    invisibleButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    invisibleButton.Font = Enum.Font.GothamBold
+    invisibleButton.TextSize = 20
+    invisibleButton.TextStrokeTransparency = 0.7
+    invisibleButton.BorderSizePixel = 0
+    invisibleButton.BackgroundTransparency = 0.3
+
+    -- Speed Up Button
+    local speedUpButton = screenGui:FindFirstChild("SpeedUpButton") or Instance.new("TextButton")
+    speedUpButton.Size = UDim2.new(0, 100, 0, 50)
+    speedUpButton.Position = UDim2.new(0, 120, 1, -60) -- Position to the right of the Invisible button
+    speedUpButton.Text = "Speed Up"
+    speedUpButton.Name = "SpeedUpButton"
+    speedUpButton.Parent = screenGui
+    -- Apply design from the first script
+    speedUpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    speedUpButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    speedUpButton.Font = Enum.Font.GothamBold
+    speedUpButton.TextSize = 20
+    speedUpButton.TextStrokeTransparency = 0.7
+    speedUpButton.BorderSizePixel = 0
+    speedUpButton.BackgroundTransparency = 0.3
+
+    -- Slow Down Button
+    local slowDownButton = screenGui:FindFirstChild("SlowDownButton") or Instance.new("TextButton")
+    slowDownButton.Size = UDim2.new(0, 100, 0, 50)
+    slowDownButton.Position = UDim2.new(0, 230, 1, -60) -- Position to the right of the Speed Up button
+    slowDownButton.Text = "Slow Down"
+    slowDownButton.Name = "SlowDownButton"
+    slowDownButton.Parent = screenGui
+    -- Apply design from the first script
+    slowDownButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    slowDownButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    slowDownButton.Font = Enum.Font.GothamBold
+    slowDownButton.TextSize = 20
+    slowDownButton.TextStrokeTransparency = 0.7
+    slowDownButton.BorderSizePixel = 0
+    slowDownButton.BackgroundTransparency = 0.3
+
+    -- Add rounded corners to buttons
+    local cornerInvisible = Instance.new("UICorner")
+    cornerInvisible.CornerRadius = UDim.new(0, 12)
+    cornerInvisible.Parent = invisibleButton
+
+    local cornerSpeedUp = Instance.new("UICorner")
+    cornerSpeedUp.CornerRadius = UDim.new(0, 12)
+    cornerSpeedUp.Parent = speedUpButton
+
+    local cornerSlowDown = Instance.new("UICorner")
+    cornerSlowDown.CornerRadius = UDim.new(0, 12)
+    cornerSlowDown.Parent = slowDownButton
+
+    -- Hover effect
+    invisibleButton.MouseEnter:Connect(function()
+        invisibleButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover
+        invisibleButton.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover
+    end)
+
+    invisibleButton.MouseLeave:Connect(function()
+        invisibleButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+        invisibleButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+    end)
+
+    speedUpButton.MouseEnter:Connect(function()
+        speedUpButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        speedUpButton.TextColor3 = Color3.fromRGB(255, 200, 0)
+    end)
+
+    speedUpButton.MouseLeave:Connect(function()
+        speedUpButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+        speedUpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    end)
+
+    slowDownButton.MouseEnter:Connect(function()
+        slowDownButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        slowDownButton.TextColor3 = Color3.fromRGB(255, 200, 0)
+    end)
+
+    slowDownButton.MouseLeave:Connect(function()
+        slowDownButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+        slowDownButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    end)
+
+    -- Function to toggle invisibility when the button is clicked
+    invisibleButton.MouseButton1Click:Connect(function()
+        toggleInvisibility()
+
+        -- Change button text based on invisibility state
+        if getgenv().en then
+            invisibleButton.Text = "Uninvisible"
+        else
+            invisibleButton.Text = "Invisible"
+        end
+    end)
+
+    -- Speed Up button functionality
+    speedUpButton.MouseButton1Click:Connect(function()
+        if getgenv().FlySpeed < 10 then  -- Maximum speed limit
+            getgenv().FlySpeed = getgenv().FlySpeed + 0.1  -- Increase speed
+        end
+    end)
+
+    -- Slow Down button functionality
+    slowDownButton.MouseButton1Click:Connect(function()
+        if getgenv().FlySpeed > 0.1 then  -- Minimum speed limit
+            getgenv().FlySpeed = getgenv().FlySpeed - 0.1  -- Decrease speed
+        end
+    end)
+end
+
+-- Create the GUI when the player joins
+createGui()
+
+-- Recreate the GUI when the character is added (on reset)
+player.CharacterAdded:Connect(function()
+    -- Wait until the character is fully loaded
+    wait(2)
+    -- Recreate the GUI immediately when the character resets
+    createGui()
+end)
+
+-- Existing code continues here...
+workspace.FallenPartsDestroyHeight = math.huge - math.huge
+getgenv().FlySpeed = 0.2 -- Default slower speed (adjust this value)
+getgenv().www = false
+getgenv().aaa = false
+getgenv().sss = false
+getgenv().ddd = false
+getgenv().qqq = false
+getgenv().eee = false
+getgenv().en = false
+getgenv().ssss = player:GetMouse()
+getgenv().currentcf = nil
+
+local part = Instance.new("Part") -- Create a new part
+part.Name = "a" 
+part.Anchored = true 
+part.Parent = game.Workspace
+part.CFrame = CFrame.new(0, -600000, 0)
+
+-- Key down events to control flying
+ssss.KeyDown:connect(function(key)
+    if key == "=" then
+        getgenv().FlySpeed = getgenv().FlySpeed + 0.1 -- Increase speed gradually
+    elseif key == "-" then
+        getgenv().FlySpeed = 0.2 -- Reset to default slower speed
+    elseif key == "w" then
+        getgenv().www = true
+    elseif key == "a" then
+        getgenv().aaa = true
+    elseif key == "s" then
+        getgenv().sss = true
+    elseif key == "d" then
+        getgenv().ddd = true
+    elseif key == "q" then
+        getgenv().qqq = true
+    elseif key == "e" then
+        getgenv().eee = true
+    elseif key == "" then
+        toggleInvisibility()
+    end
+end)
+
+-- Key up events to stop movement
+ssss.KeyUp:connect(function(key)
+    if key == "w" then
+        getgenv().www = false
+    elseif key == "a" then
+        getgenv().aaa = false
+    elseif key == "s" then
+        getgenv().sss = false
+    elseif key == "d" then
+        getgenv().ddd = false
+    elseif key == "q" then
+        getgenv().qqq = false
+    elseif key == "e" then
+        getgenv().eee = false
+    end
+end)
+
+function toggleInvisibility()
+    if getgenv().en then 
+        getgenv().en = false
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+    else 
+        getgenv().en = true
+        getgenv().currentcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = part.CFrame
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+        wait()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getgenv().currentcf
+    end
+end
+
+-- Movement logic
+game:GetService("RunService").RenderStepped:Connect(function()
+    if getgenv().en then
+        if getgenv().www then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, getgenv().FlySpeed * -1)
+        end    
+        if getgenv().aaa then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(getgenv().FlySpeed * -1, 0, 0)
+        end
+        if getgenv().sss then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, getgenv().FlySpeed)
+        end
+        if getgenv().ddd then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(getgenv().FlySpeed, 0, 0)
+        end
+        if getgenv().qqq then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, getgenv().FlySpeed, 0)
+        end
+        if getgenv().eee then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, getgenv().FlySpeed * -1, 0)
+        end
+    end
+end)
