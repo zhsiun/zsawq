@@ -1072,6 +1072,45 @@ resetGui()
 
 --8th script 
 
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+screenGui.ResetOnSpawn = false -- Prevent GUI from disappearing on reset
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 200, 0, 50)  -- Keep the same size as before
+button.Position = UDim2.new(0.9, -100, 0, 0)  -- Position at the top right of the screen
+button.Text = "VC BYPASS"
+button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for contrast
+button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Dark background for edgy feel
+button.Font = Enum.Font.GothamBold  -- Bold and modern font
+button.TextSize = 20  -- Slightly smaller text size for consistency
+button.TextStrokeTransparency = 0.7  -- Slight text stroke for sharp contrast
+button.BorderSizePixel = 0  -- No border to keep the sleek look
+button.BackgroundTransparency = 0.3  -- Slight transparency for depth
+button.Parent = screenGui
+
+-- Add a UI corner for rounded edges
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 12)  -- Rounded corners with radius of 12
+corner.Parent = button
+
+-- Add hover effect
+button.MouseEnter:Connect(function()
+    button.BackgroundColor3 = Color3.fromRGB(60, 60, 60)  -- Darker gray on hover for effect
+    button.TextColor3 = Color3.fromRGB(255, 200, 0)  -- Goldish text color on hover for an edgy pop
+end)
+
+button.MouseLeave:Connect(function()
+    button.BackgroundColor3 = Color3.fromRGB(35, 35, 35)  -- Return to original dark color
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text when not hovered
+end)
+
+-- Button click event
+button.MouseButton1Click:Connect(function()
+    local VoiceChatService = game:GetService("VoiceChatService")
+    VoiceChatService:joinVoice()
+end)
 
 --9th script
 
