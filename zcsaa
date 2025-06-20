@@ -1071,7 +1071,7 @@ resetGui()
 
 
 --8th script 
--
+
 --9th script
 
 
@@ -1314,4 +1314,3 @@ game:GetService("RunService").RenderStepped:Connect(function()
         end
     end
 end)
-
